@@ -1,10 +1,10 @@
 /* ===================================================================
    Hemadri Reddy - Modern Portfolio JavaScript
-   Lightweight, Zero-Dependency Interactions
+   Interactive Terminal, Filter Matrix, Stats & Smooth Navigation
    =================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Navbar scroll background effect
+  // 1. Navbar scroll background effect & back-to-top visibility
   const navbar = document.querySelector('.navbar');
   const backToTopBtn = document.querySelector('.back-to-top');
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mobile menu toggle
+  // 2. Mobile menu toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active section indicator via Intersection Observer
+  // 3. Active section indicator via Intersection Observer
   const sections = document.querySelectorAll('section[id]');
   if ('IntersectionObserver' in window && sections.length > 0) {
     const observer = new IntersectionObserver((entries) => {
@@ -69,19 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.25 });
 
     sections.forEach(section => observer.observe(section));
   }
 
-  // Back to top click
+  // 4. Back to top click
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // Copy email to clipboard function
+  // 5. Copy email to clipboard function
   const copyButtons = document.querySelectorAll('[data-copy-email]');
   const toast = document.getElementById('copy-toast');
 
@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navigator.clipboard.writeText(email).then(() => {
         showToast('Email address copied to clipboard!');
       }).catch(() => {
-        // Fallback for older browsers
         const textarea = document.createElement('textarea');
         textarea.value = email;
         document.body.appendChild(textarea);
@@ -113,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2800);
   }
 
-  // Animated stat number count-up on scroll
+  // 6. Animated stat number count-up on scroll
   const statNumbers = document.querySelectorAll('.stat-number[data-target]');
   if ('IntersectionObserver' in window && statNumbers.length > 0) {
     let animated = false;
@@ -149,4 +148,91 @@ document.addEventListener('DOMContentLoaded', () => {
       statObserver.observe(statsSection);
     }
   }
+
+  // 7. Interactive Terminal Test Runner Simulation
+  const runTestBtn = document.getElementById('run-terminal-test');
+  const clearTermBtn = document.getElementById('clear-terminal');
+  const termBody = document.getElementById('terminal-output-body');
+
+  const defaultTerminalLines = [
+    '<div class="terminal-line"><span class="terminal-prompt">sdet@hemadri:~/universe-framework$</span> <span class="terminal-cmd">npx cucumber-js --tags "@smoke and @mcp"</span></div>',
+    '<div class="terminal-line term-purple"><i class="fa-solid fa-microchip"></i> [MCP Host] Initializing Chrome DevTools MCP & ClickUp MCP servers... [CONNECTED]</div>',
+    '<div class="terminal-line term-muted">Configuring CustomWorld context, loading 30+ Page Object Classes, baseURL: https://app.vitra.ai</div>',
+    '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> [PASS] Scenario: Multilingual media dubbing & translation memory (Owner role) (1.42s)</div>',
+    '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> [PASS] Scenario: REST API contract & JWT auth payload schema validation (340ms)</div>',
+    '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> [PASS] Scenario: Autonomous locator self-healing on dynamic DOM tree (780ms)</div>',
+    '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> [PASS] Scenario: Deeply nested JSON & DOCX synthetic test fixtures (260ms)</div>',
+    '<div class="terminal-line term-info"><i class="fa-solid fa-chart-pie"></i> Generating Dual Allure Reports & Cucumber HTML... [SAVED ./allure-results]</div>',
+    '<div class="terminal-line"><span class="term-success" style="font-weight:700;">✔ 4 scenarios passed (28 steps) [100% SUCCESS]</span> <span class="term-muted">Time: 2.80s</span></div>',
+    '<div class="terminal-line"><span class="terminal-prompt">sdet@hemadri:~/universe-framework$</span> <span class="term-cursor"></span></div>'
+  ];
+
+  if (termBody) {
+    termBody.innerHTML = defaultTerminalLines.join('');
+  }
+
+  if (runTestBtn && termBody) {
+    let isRunning = false;
+    runTestBtn.addEventListener('click', () => {
+      if (isRunning) return;
+      isRunning = true;
+      runTestBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Running...';
+      termBody.innerHTML = '<div class="terminal-line"><span class="terminal-prompt">sdet@hemadri:~/universe-framework$</span> <span class="terminal-cmd">npx playwright test --workers=4 --reporter=allure-playwright</span></div>';
+
+      const sequence = [
+        { text: '<div class="terminal-line term-info"><i class="fa-solid fa-network-wired"></i> [Playwright] Launching 4 parallel workers (Chromium, Firefox, WebKit headless)...</div>', delay: 350 },
+        { text: '<div class="terminal-line term-purple"><i class="fa-solid fa-brain"></i> [MCP Bridge] Chrome DevTools MCP attached for live network interception & console monitoring.</div>', delay: 750 },
+        { text: '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> ✓ [Worker 1] specs/rbac/owner-admin-access.spec.js (1.12s)</div>', delay: 1200 },
+        { text: '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> ✓ [Worker 2] specs/api/translation-memory-contract.spec.js (480ms)</div>', delay: 1600 },
+        { text: '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> ✓ [Worker 3] specs/e2e/video-dubbing-workflow.spec.js (1.35s)</div>', delay: 2100 },
+        { text: '<div class="terminal-line term-success"><i class="fa-solid fa-check"></i> ✓ [Worker 4] specs/mcp/autonomous-locator-healing.spec.js (820ms)</div>', delay: 2500 },
+        { text: '<div class="terminal-line term-info"><i class="fa-solid fa-circle-check"></i> [ClickUp MCP] Zero defect triggers reported. Release gate passed successfully!</div>', delay: 2900 },
+        { text: '<div class="terminal-line"><span class="term-success" style="font-weight:700;">✔ 18 passed in 3.4s</span> <span class="badge badge-emerald">QUALITY SIGN-OFF GRANTED</span></div>', delay: 3200 },
+        { text: '<div class="terminal-line"><span class="terminal-prompt">sdet@hemadri:~/universe-framework$</span> <span class="term-cursor"></span></div>', delay: 3400 }
+      ];
+
+      sequence.forEach(item => {
+        setTimeout(() => {
+          termBody.innerHTML += item.text;
+          termBody.scrollTop = termBody.scrollHeight;
+        }, item.delay);
+      });
+
+      setTimeout(() => {
+        isRunning = false;
+        runTestBtn.innerHTML = '<i class="fa-solid fa-play"></i> Re-Run Test';
+      }, 3600);
+    });
+  }
+
+  if (clearTermBtn && termBody) {
+    clearTermBtn.addEventListener('click', () => {
+      termBody.innerHTML = '<div class="terminal-line"><span class="terminal-prompt">sdet@hemadri:~/universe-framework$</span> <span class="term-cursor"></span></div>';
+    });
+  }
+
+  // 8. Skills Filtering Tabs Logic
+  const filterBtns = document.querySelectorAll('.skills-filter-nav .filter-btn');
+  const skillCards = document.querySelectorAll('.skill-category-card[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterVal = btn.getAttribute('data-filter');
+
+      skillCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filterVal === 'all' || cat === filterVal) {
+          card.style.display = 'block';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+    });
+  });
 });

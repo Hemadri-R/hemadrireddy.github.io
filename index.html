@@ -39,10 +39,12 @@
 
       <ul class="nav-menu">
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
         <li><a href="#mcp-ai" class="nav-link">AI &amp; MCP</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#interests" class="nav-link">Interests &amp; Goals</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li class="mobile-only-nav-item"><a href="Hemadri_Reddy_SDET_Resume.pdf" class="nav-link" download="Hemadri_Reddy_SDET_Resume.pdf"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a></li>
       </ul>
@@ -146,6 +148,36 @@
           </div>
         </div>
       </div>
+
+      <!-- ===================================================================
+           Interactive Terminal Test Runner Widget
+           =================================================================== -->
+      <div class="terminal-wrapper">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-controls">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+            </div>
+            <div class="terminal-title">
+              <i class="fa-solid fa-terminal" style="color: var(--primary);"></i>
+              <span>sdet@hemadri: ~/universe-automation-framework (Playwright + MCP)</span>
+            </div>
+            <div class="terminal-actions">
+              <button class="term-action-btn" id="run-terminal-test" title="Simulate running live test suite">
+                <i class="fa-solid fa-play"></i> Run Test Suite
+              </button>
+              <button class="term-action-btn" id="clear-terminal" title="Clear terminal output">
+                <i class="fa-solid fa-eraser"></i> Clear
+              </button>
+            </div>
+          </div>
+          <div class="terminal-body" id="terminal-output-body">
+            <!-- Populated via JavaScript -->
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -224,6 +256,55 @@
           </div>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
             Integrating headless parallel test suites directly into GitLab CI, GitHub Actions, and Jenkins pipelines. Configured dual Allure Reports and Cucumber HTML/JSON suites featuring failure categorization, historical regression trend tracking, and automated screenshot attachments on failures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Engineering Philosophy & Quality Principles (NEW)
+       =================================================================== -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag emerald"><i class="fa-solid fa-shield-halved"></i> Engineering Mindset</span>
+        <h2 class="section-title">My Quality <span class="gradient-text-emerald">Philosophy &amp; Principles</span></h2>
+        <p class="section-subtitle">
+          Quality is not an afterthought or a final bottleneck—it is an architectural discipline woven into every pull request.
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="philo-icon"><i class="fa-solid fa-crosshairs"></i></div>
+          <h3 class="philo-title">Zero Flakiness Tolerance</h3>
+          <p class="philo-desc">
+            A flaky test is worse than no test—it erodes engineering trust. I build resilient suites using deterministic wait strategies, network idle triggers, and smart locators over brittle hardcoded delays.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philo-icon"><i class="fa-solid fa-code-compare"></i></div>
+          <h3 class="philo-title">Shift-Left &amp; API-First</h3>
+          <p class="philo-desc">
+            Catch contract breakages, authentication mismatches, and schema drift at the API boundary before running heavy UI tests. Faster feedback loops mean fewer bugs reaching staging.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philo-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="philo-title">AI as a Velocity Multiplier</h3>
+          <p class="philo-desc">
+            I don't treat AI as a gimmick. By integrating Model Context Protocol (MCP) tools and AI coding agents, I automate synthetic test fixtures, exploratory DOM inspection, and instant root-cause analysis.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="philo-icon"><i class="fa-solid fa-chart-column"></i></div>
+          <h3 class="philo-title">Deep Observability Over Pass/Fail</h3>
+          <p class="philo-desc">
+            A test report must tell a complete story. Dual Allure and Cucumber HTML reports provide failure trends, automatic visual screenshots, and logs that enable developers to fix issues in minutes.
           </p>
         </div>
       </div>
@@ -324,7 +405,7 @@
   </section>
 
   <!-- ===================================================================
-       Technical Skills Matrix
+       Technical Skills Matrix (Interactive Filterable)
        =================================================================== -->
   <section id="skills">
     <div class="container">
@@ -332,13 +413,24 @@
         <span class="section-tag"><i class="fa-solid fa-laptop-code"></i> Technical Matrix</span>
         <h2 class="section-title">Comprehensive <span class="gradient-text">Skills &amp; Technologies</span></h2>
         <p class="section-subtitle">
-          A proven tech stack honed across 3.4+ years of automating enterprise AI, web, and microservice architectures.
+          Interactive matrix categorizing 3.4+ years of hands-on expertise in enterprise automation, BDD, API, and agentic workflows.
         </p>
+      </div>
+
+      <!-- Skills Category Filter Tabs -->
+      <div class="skills-filter-nav">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="ui">UI &amp; E2E Automation</button>
+        <button class="filter-btn" data-filter="ai">AI &amp; MCP Tooling</button>
+        <button class="filter-btn" data-filter="bdd">Architecture &amp; BDD</button>
+        <button class="filter-btn" data-filter="api">API &amp; Backend</button>
+        <button class="filter-btn" data-filter="cicd">CI/CD &amp; Observability</button>
+        <button class="filter-btn" data-filter="lang">Languages &amp; Core</button>
       </div>
 
       <div class="skills-grid">
         <!-- Card 1 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="ui">
           <div class="skill-cat-header">
             <div class="skill-cat-icon"><i class="fa-solid fa-desktop"></i></div>
             <h3 class="skill-cat-title">UI &amp; E2E Automation</h3>
@@ -355,7 +447,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="bdd">
           <div class="skill-cat-header">
             <div class="skill-cat-icon"><i class="fa-solid fa-sitemap"></i></div>
             <h3 class="skill-cat-title">Architecture &amp; BDD</h3>
@@ -373,7 +465,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="ai">
           <div class="skill-cat-header">
             <div class="skill-cat-icon" style="color: #C084FC; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3);"><i class="fa-solid fa-microchip"></i></div>
             <h3 class="skill-cat-title">AI &amp; MCP Tooling</h3>
@@ -391,7 +483,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="api">
           <div class="skill-cat-header">
             <div class="skill-cat-icon"><i class="fa-solid fa-server"></i></div>
             <h3 class="skill-cat-title">API &amp; Backend</h3>
@@ -408,7 +500,7 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="lang">
           <div class="skill-cat-header">
             <div class="skill-cat-icon"><i class="fa-solid fa-code"></i></div>
             <h3 class="skill-cat-title">Languages &amp; Scripting</h3>
@@ -425,7 +517,7 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="skill-category-card">
+        <div class="skill-category-card" data-category="cicd">
           <div class="skill-cat-header">
             <div class="skill-cat-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
             <h3 class="skill-cat-title">CI/CD, Tracking &amp; QA</h3>
@@ -439,6 +531,49 @@
             <span class="skill-pill">Multi-Role RBAC Testing</span>
             <span class="skill-pill">Jira &amp; ClickUp</span>
             <span class="skill-pill">Agile / Scrum Ceremonies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Framework Architecture Flowchart (NEW)
+       =================================================================== -->
+  <section style="padding: 2rem 0;">
+    <div class="container">
+      <div class="arch-flow-wrapper">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="badge badge-cyan" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-diagram-project"></i> Pipeline Blueprint</span>
+          <h3 style="font-size: 1.5rem; font-weight: 800;">Universe Framework Architecture Flow</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">How tests traverse from business Gherkin specifications to CI/CD observability</p>
+        </div>
+
+        <div class="arch-flow-grid">
+          <div class="arch-step">
+            <div class="arch-step-num">STEP 01</div>
+            <h4 class="arch-step-title">Gherkin Specs</h4>
+            <p class="arch-step-desc">Business-readable scenarios &amp; outline tables</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">STEP 02</div>
+            <h4 class="arch-step-title">CustomWorld</h4>
+            <p class="arch-step-desc">Centralized state, auth tokens &amp; lifecycle hooks</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">STEP 03</div>
+            <h4 class="arch-step-title">30+ POMs</h4>
+            <p class="arch-step-desc">Modular selectors, actions &amp; caching</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">STEP 04</div>
+            <h4 class="arch-step-title">Playwright Engine</h4>
+            <p class="arch-step-desc">Parallel headless workers (Chromium/Firefox/WebKit)</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">STEP 05</div>
+            <h4 class="arch-step-title">Observability</h4>
+            <p class="arch-step-desc">Dual Allure + Cucumber HTML &amp; ClickUp MCP filing</p>
           </div>
         </div>
       </div>
@@ -683,6 +818,199 @@
               <i class="fa-brands fa-github"></i> View Repository on GitHub
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Interests & Passion Areas (NEW)
+       =================================================================== -->
+  <section id="interests">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag purple"><i class="fa-solid fa-heart"></i> Passions &amp; Focus</span>
+        <h2 class="section-title">Core Interests &amp; <span class="gradient-text-purple">Technical Passions</span></h2>
+        <p class="section-subtitle">
+          Beyond writing automation scripts, these are the technical disciplines, emerging paradigms, and passions that drive my engineering curiosity.
+        </p>
+      </div>
+
+      <div class="interests-grid">
+        <!-- Interest 1 -->
+        <div class="interest-card">
+          <div class="interest-icon-box purple">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="interest-title">Autonomous AI &amp; Agentic QA</h3>
+          <p class="interest-desc">
+            Deeply fascinated by the intersection of AI coding agents and Model Context Protocol (MCP). Experimenting with autonomous agents that navigate live DOM trees, detect UI regressions, and heal flaky selectors on the fly.
+          </p>
+          <div class="interest-tags">
+            <span class="badge badge-purple">MCP Servers</span>
+            <span class="badge">Agent Skills</span>
+            <span class="badge">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- Interest 2 -->
+        <div class="interest-card">
+          <div class="interest-icon-box cyan">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h3 class="interest-title">High-Velocity Automation DX</h3>
+          <p class="interest-desc">
+            Obsessed with developer experience (DX) and test execution speed. Designing zero-flakiness suites with sub-3-minute execution times through headless parallelization, smart sharding, and reusable page object caching.
+          </p>
+          <div class="interest-tags">
+            <span class="badge badge-cyan">Parallel Workers</span>
+            <span class="badge">Flake Elimination</span>
+            <span class="badge">CustomWorld</span>
+          </div>
+        </div>
+
+        <!-- Interest 3 -->
+        <div class="interest-card">
+          <div class="interest-icon-box emerald">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3 class="interest-title">Technical Writing &amp; Knowledge Sharing</h3>
+          <p class="interest-desc">
+            Passion for breaking down complex testing patterns into actionable tutorials. Sharing insights on LinkedIn and technical blogs about Cucumber BDD architectures, MCP debugging, and practical automation engineering.
+          </p>
+          <div class="interest-tags">
+            <span class="badge badge-emerald">Tech Blogging</span>
+            <span class="badge">LinkedIn QA Guides</span>
+            <span class="badge">Mentorship</span>
+          </div>
+        </div>
+
+        <!-- Interest 4 -->
+        <div class="interest-card">
+          <div class="interest-icon-box amber">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3 class="interest-title">API Contracts &amp; Microservices</h3>
+          <p class="interest-desc">
+            Championing API contract validation across distributed microservices. Testing data integrity, JSON/XML schema consistency, and payload token lifecycles so breaking changes never hit staging environments.
+          </p>
+          <div class="interest-tags">
+            <span class="badge">Contract Testing</span>
+            <span class="badge">Schema Validation</span>
+            <span class="badge">REST Assured</span>
+          </div>
+        </div>
+
+        <!-- Interest 5 -->
+        <div class="interest-card">
+          <div class="interest-icon-box rose">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <h3 class="interest-title">Developer Tooling &amp; Open Source</h3>
+          <p class="interest-desc">
+            Building lightweight CLI tools, Python test fixtures generators, and GitHub Actions automation workflows that reduce friction for both software developers and quality engineers.
+          </p>
+          <div class="interest-tags">
+            <span class="badge">Python Utilities</span>
+            <span class="badge">GitHub Actions</span>
+            <span class="badge">Open Source</span>
+          </div>
+        </div>
+
+        <!-- Interest 6 -->
+        <div class="interest-card">
+          <div class="interest-icon-box cyan">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h3 class="interest-title">Security &amp; Multi-Role RBAC</h3>
+          <p class="interest-desc">
+            Engineering robust role-based access control (RBAC) test matrices. Ensuring enterprise permission boundaries are strictly verified across all 6 core user roles before every production release.
+          </p>
+          <div class="interest-tags">
+            <span class="badge badge-cyan">RBAC Matrices</span>
+            <span class="badge">Security Gates</span>
+            <span class="badge">Multi-Tenant QA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Career Goals & Vision Roadmap (NEW)
+       =================================================================== -->
+  <section id="goals" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag emerald"><i class="fa-solid fa-bullseye"></i> Vision &amp; Trajectory</span>
+        <h2 class="section-title">Career Goals &amp; <span class="gradient-text-emerald">Engineering Roadmap</span></h2>
+        <p class="section-subtitle">
+          Where I am focusing my engineering growth today, tomorrow, and into the future of autonomous quality engineering.
+        </p>
+      </div>
+
+      <div class="goals-roadmap">
+        <!-- Milestone 1 -->
+        <div class="goal-card active-now">
+          <span class="goal-badge now"><i class="fa-solid fa-circle-dot"></i> Current Focus (2025 – 2026)</span>
+          <h3 class="goal-title">Senior SDET Excellence &amp; MCP Integration</h3>
+          <div class="goal-timeframe">Ongoing • Vitra.ai</div>
+          <ul class="goal-points">
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Maintain 100% CI/CD regression pass rates across 8 core enterprise AI modules.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Scale Model Context Protocol (MCP) toolchain with Chrome DevTools &amp; ClickUp for automated defect triage.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Author deep-dive technical articles sharing Playwright + Cucumber BDD best practices with the QA community.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="goal-card">
+          <span class="goal-badge next"><i class="fa-solid fa-forward"></i> Near-Term Milestone (1–2 Years)</span>
+          <h3 class="goal-title">Lead SDET &amp; Quality Architect</h3>
+          <div class="goal-timeframe">Target Horizon • 2026 – 2027</div>
+          <ul class="goal-points">
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Architect next-generation test automation foundations across distributed microservice and AI platforms.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Mentor and grow teams of automation engineers in BDD practices and agentic testing workflows.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Design unified quality telemetry dashboards integrating Allure, GitLab CI, and production error monitoring.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="goal-card">
+          <span class="goal-badge future"><i class="fa-solid fa-star"></i> Long-Term Vision (3–5 Years)</span>
+          <h3 class="goal-title">Head of Quality &amp; Autonomous QA Systems</h3>
+          <div class="goal-timeframe">Strategic Horizon • 2028+</div>
+          <ul class="goal-points">
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Pioneer autonomous AI quality engineering systems that generate, execute, and self-heal test suites with zero human overhead.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Direct enterprise-wide Quality Engineering strategies, establishing shift-left quality cultures that maximize release frequency.</span>
+            </li>
+            <li class="goal-point-item">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Contribute to open-source quality testing standards and speaker engagements at international tech conferences.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
