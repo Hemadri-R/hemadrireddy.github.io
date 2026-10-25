@@ -22,6 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Clean URL: Strip #top on load and handle brand click without URL hash
+  if (window.location.hash === '#top') {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+
+  const navBrand = document.querySelector('.nav-brand');
+  navBrand?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+  });
+
+  backToTopBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+  });
+
   // 2. Mobile menu toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');
