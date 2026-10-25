@@ -237,4 +237,65 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // 9. Interactive Theme Switcher Engine
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeDropdown = document.getElementById('theme-dropdown');
+  const themeOptions = document.querySelectorAll('.theme-option');
+
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'cyan';
+  applyTheme(savedTheme);
+
+  if (themeToggleBtn && themeDropdown) {
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themeDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!themeDropdown.contains(e.target) && e.target !== themeToggleBtn) {
+        themeDropdown.classList.remove('open');
+      }
+    });
+  }
+
+  themeOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      const selectedTheme = opt.getAttribute('data-set-theme');
+      applyTheme(selectedTheme);
+      try {
+        localStorage.setItem('portfolio-theme', selectedTheme);
+      } catch (err) {}
+      if (themeDropdown) themeDropdown.classList.remove('open');
+    });
+  });
+
+  function applyTheme(themeName) {
+    if (themeName === 'cyan') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', themeName);
+    }
+
+    themeOptions.forEach(opt => {
+      if (opt.getAttribute('data-set-theme') === themeName) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
+
+    // Update label text if present
+    const labelEl = document.querySelector('.theme-label-text');
+    if (labelEl) {
+      const names = {
+        'cyan': 'Midnight',
+        'violet': 'Violet',
+        'emerald': 'Emerald',
+        'carbon': 'Carbon'
+      };
+      labelEl.textContent = names[themeName] || 'Theme';
+    }
+  }
 });

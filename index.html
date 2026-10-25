@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Modern Stylesheet -->
-  <link rel="stylesheet" href="css/modern.css?v=2.2">
+  <link rel="stylesheet" href="css/modern.css?v=3.5">
 </head>
 
 <body id="top">
@@ -51,6 +51,37 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- Theme Switcher -->
+        <div class="theme-switcher-wrapper">
+          <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Select Theme" title="Choose Portfolio Theme">
+            <i class="fa-solid fa-palette"></i>
+            <span class="theme-label-text">Theme</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <div class="theme-dropdown-header">Choose Theme</div>
+            <button type="button" class="theme-option active" data-set-theme="cyan">
+              <span class="theme-swatch" style="background: linear-gradient(135deg, #38BDF8, #10B981);"></span>
+              <span class="theme-option-name">Midnight Cyan</span>
+              <i class="fa-solid fa-check theme-check"></i>
+            </button>
+            <button type="button" class="theme-option" data-set-theme="violet">
+              <span class="theme-swatch" style="background: linear-gradient(135deg, #A855F7, #EC4899);"></span>
+              <span class="theme-option-name">Cyberpunk Violet</span>
+              <i class="fa-solid fa-check theme-check"></i>
+            </button>
+            <button type="button" class="theme-option" data-set-theme="emerald">
+              <span class="theme-swatch" style="background: linear-gradient(135deg, #10B981, #84CC16);"></span>
+              <span class="theme-option-name">Matrix Emerald</span>
+              <i class="fa-solid fa-check theme-check"></i>
+            </button>
+            <button type="button" class="theme-option" data-set-theme="carbon">
+              <span class="theme-swatch" style="background: linear-gradient(135deg, #60A5FA, #94A3B8);"></span>
+              <span class="theme-option-name">Carbon Minimalist</span>
+              <i class="fa-solid fa-check theme-check"></i>
+            </button>
+          </div>
+        </div>
+
         <a href="Hemadri_Reddy_SDET_Resume.pdf" class="btn btn-secondary btn-sm" download="Hemadri_Reddy_SDET_Resume.pdf" title="Download Resume PDF">
           <i class="fa-solid fa-file-arrow-down"></i> Resume
         </a>
@@ -1314,6 +1345,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="js/modern.js?v=2.1"></script>
+  <script src="js/modern.js?v=3.5"></script>
 </body>
 </html>
