@@ -61,9 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const currentId = entry.target.getAttribute('id');
+          const mappedId = (currentId === 'philosophy') ? 'about' : 
+                           (currentId === 'interests' || currentId === 'goals') ? 'projects' : currentId;
           navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentId}`) {
+            if (link.getAttribute('href') === `#${mappedId}`) {
               link.classList.add('active');
             }
           });
