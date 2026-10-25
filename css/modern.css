@@ -365,14 +365,23 @@ a:hover {
 
 .brand-badge {
   font-family: var(--font-mono);
+  font-weight: 700;
   font-size: 0.85rem;
   color: var(--primary);
   background: rgba(56, 189, 248, 0.12);
   padding: 0.25rem 0.55rem;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(56, 189, 248, 0.3);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.brand-badge i {
+  font-size: 0.75rem;
+  opacity: 0.9;
 }
 
 .nav-menu {
@@ -1545,6 +1554,9 @@ footer {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .footer-copy {
