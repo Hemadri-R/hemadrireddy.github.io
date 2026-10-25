@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   copyButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const email = 'hemadri.thokala770@gmail.com';
+      const email = 'ihemadrireddy@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
         showToast('Email address copied to clipboard!');
       }).catch(() => {
