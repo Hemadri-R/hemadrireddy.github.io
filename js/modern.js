@@ -315,7 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'cyan': 'Midnight',
         'violet': 'Violet',
         'emerald': 'Emerald',
-        'carbon': 'Carbon'
+        'carbon': 'Carbon',
+        'light': 'Light'
       };
       labelEl.textContent = names[themeName] || 'Theme';
     }
